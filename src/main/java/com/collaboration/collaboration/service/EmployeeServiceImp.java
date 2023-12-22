@@ -1,6 +1,7 @@
 package com.collaboration.collaboration.service;
 
 import com.collaboration.collaboration.model.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -14,6 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class EmployeeServiceImp implements EmployeeService {
+    private final PairService pairService;
+    @Autowired
+    public EmployeeServiceImp(PairService pairService) {
+        this.pairService = pairService;
+    }
     @Override
     public List<Employee> parseCsv(String filePath) {
         List<Employee> employees = new ArrayList<>();
@@ -61,7 +67,7 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     public List<String> findLongestWorkingPairs(List<Employee> employees) {
-
-        return null;
+        // Delegate the responsibility to PairService
+        return pairService.findWorkingPairs(employees);
     }
 }
