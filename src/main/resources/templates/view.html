@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CSV Data View</title>
+</head>
+<body>
+<h2>CSV Data View</h2>
+
+<ul>
+    <li th:each="employee : ${employees}" th:text="${employee.toString()}"></li>
+</ul>
+</body>
+</html>
