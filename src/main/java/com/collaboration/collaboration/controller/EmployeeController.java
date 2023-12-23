@@ -24,7 +24,7 @@ public class EmployeeController {
 
     @GetMapping("/view")
     public String viewCsvData(Model model) {
-        List<Employee> employees = employeeService.parseCsv("C:/Users/Simeon/Downloads/demo/src/main/resources/file.csv");
+        List<Employee> employees = employeeService.parseCsv("D:/Sirma/collaboration/src/main/resources/file.csv");
         model.addAttribute("employees", employees);
         return "view";
     }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.List;
 @RestController
 @RequestMapping("/api/pairs")
@@ -23,8 +24,8 @@ public class PairController {
     }
 
     @GetMapping("/longest")
-    public List<Pair> getLongestWorkingPairs() {
-        List<Employee> employees = employeeService.parseCsv("C:/Users/Simeon/Downloads/demo/src/main/resources/file.csv");
+    public List<Pair> getLongestWorkingPairs() throws ParseException {
+        List<Employee> employees = employeeService.parseCsv("D:/Sirma/collaboration/src/main/resources/file.csv");
         return pairService.findLongestWorkingPairs(employees);
     }
 }
